@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StockVault | Portfolio Tracker</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ANIMATED BACKGROUND
+         ===================================================== -->
+
+    <div class="background">
+
+        <div class="glow glow-1"></div>
+
+        <div class="glow glow-2"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div>
+
+                <h2>
+                    Stock<span>Vault</span>
+                </h2>
+
+                <p>
+                    Portfolio Tracker
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-status">
+
+            <span class="status-dot"></span>
+
+            Market Simulator
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="tag">
+
+                    <span>●</span>
+
+                    SMART PORTFOLIO MANAGEMENT
+
+                </div>
+
+
+                <h1>
+
+                    Track Your
+
+                    <span>
+                        Investments
+                    </span>
+
+                    Smarter.
+
+                </h1>
+
+
+                <p>
+
+                    Build and manage your stock portfolio
+                    using predefined stock prices and
+                    calculate your total investment instantly.
+
+                </p>
+
+            </div>
+
+
+            <!-- Animated Chart -->
+
+            <div class="hero-chart">
+
+                <div class="chart-line"></div>
+
+                <div class="chart-point p1"></div>
+
+                <div class="chart-point p2"></div>
+
+                <div class="chart-point p3"></div>
+
+                <div class="chart-point p4"></div>
+
+                <div class="chart-point p5"></div>
+
+
+                <div class="chart-label">
+                    PORTFOLIO VALUE
+                </div>
+
+
+                <div class="chart-value">
+
+                    ₹ <span id="heroValue">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AVAILABLE STOCKS
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="small-title">
+                        MARKET
+                    </span>
+
+                    <h2>
+                        Available Stocks
+                    </h2>
+
+                </div>
+
+
+                <span class="info">
+                    Hardcoded Prices
+                </span>
+
+            </div>
+
+
+            <div class="stock-grid">
+
+
+                <!-- APPLE -->
+
+                <div
+                    class="stock-card"
+                    data-stock="AAPL"
+                >
+
+                    <div class="stock-top">
+
+                        <div class="stock-logo">
+                            A
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Apple Inc.
+                            </h3>
+
+                            <span>
+                                AAPL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-price">
+
+                        ₹180
+
+                        <small>
+                            per share
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TESLA -->
+
+                <div
+                    class="stock-card"
+                    data-stock="TSLA"
+                >
+
+                    <div class="stock-top">
+
+                        <div class="stock-logo">
+                            T
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Tesla
+                            </h3>
+
+                            <span>
+                                TSLA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-price">
+
+                        ₹250
+
+                        <small>
+                            per share
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GOOGLE -->
+
+                <div
+                    class="stock-card"
+                    data-stock="GOOGL"
+                >
+
+                    <div class="stock-top">
+
+                        <div class="stock-logo">
+                            G
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Alphabet
+                            </h3>
+
+                            <span>
+                                GOOGL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-price">
+
+                        ₹140
+
+                        <small>
+                            per share
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MICROSOFT -->
+
+                <div
+                    class="stock-card"
+                    data-stock="MSFT"
+                >
+
+                    <div class="stock-top">
+
+                        <div class="stock-logo">
+                            M
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Microsoft
+                            </h3>
+
+                            <span>
+                                MSFT
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-price">
+
+                        ₹420
+
+                        <small>
+                            per share
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AMAZON -->
+
+                <div
+                    class="stock-card"
+                    data-stock="AMZN"
+                >
+
+                    <div class="stock-top">
+
+                        <div class="stock-logo">
+                            A
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Amazon
+                            </h3>
+
+                            <span>
+                                AMZN
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-price">
+
+                        ₹190
+
+                        <small>
+                            per share
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADD INVESTMENT + SUMMARY
+             ================================================= -->
+
+        <section class="workspace">
+
+
+            <!-- FORM -->
+
+            <div class="form-panel">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <span class="small-title">
+                            PORTFOLIO
+                        </span>
+
+                        <h2>
+                            Add Investment
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <form id="stockForm">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Select Stock
+                        </label>
+
+
+                        <select
+                            id="stockSelect"
+                            required
+                        >
+
+                            <option value="">
+                                Choose a stock
+                            </option>
+
+                            <option value="AAPL">
+                                Apple — AAPL
+                            </option>
+
+                            <option value="TSLA">
+                                Tesla — TSLA
+                            </option>
+
+                            <option value="GOOGL">
+                                Alphabet — GOOGL
+                            </option>
+
+                            <option value="MSFT">
+                                Microsoft — MSFT
+                            </option>
+
+                            <option value="AMZN">
+                                Amazon — AMZN
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            placeholder="Enter quantity"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="add-btn"
+                    >
+
+                        <span>＋</span>
+
+                        Add to Portfolio
+
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
+            </div>
+
+
+
+            <!-- SUMMARY -->
+
+            <div class="summary-panel">
+
+
+                <div class="summary-header">
+
+                    <div>
+
+                        <span class="small-title">
+                            OVERVIEW
+                        </span>
+
+                        <h2>
+                            Portfolio Summary
+                        </h2>
+
+                    </div>
+
+
+                    <div class="summary-icon">
+                        ↗
+                    </div>
+
+                </div>
+
+
+                <div class="total-box">
+
+                    <span>
+                        Total Investment
+                    </span>
+
+
+                    <h3>
+
+                        ₹
+
+                        <span id="totalInvestment">
+                            0
+                        </span>
+
+                    </h3>
+
+
+                    <div class="growth">
+
+                        ▲ Portfolio Value
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-stats">
+
+                    <div>
+
+                        <span>
+                            Stocks
+                        </span>
+
+                        <strong id="totalStocks">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Shares
+                        </span>
+
+                        <strong id="totalShares">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PORTFOLIO TABLE
+             ================================================= -->
+
+        <section class="portfolio-section">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="small-title">
+                        YOUR HOLDINGS
+                    </span>
+
+                    <h2>
+                        Portfolio
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="downloadBtn"
+                    class="download-btn"
+                >
+
+                    ↓ Download Report
+
+                </button>
+
+            </div>
+
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                STOCK
+                            </th>
+
+                            <th>
+                                PRICE
+                            </th>
+
+                            <th>
+                                QUANTITY
+                            </th>
+
+                            <th>
+                                INVESTMENT
+                            </th>
+
+                            <th>
+                                ACTION
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="portfolioBody">
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                <div class="empty">
+
+                                    <div class="empty-icon">
+                                        📊
+                                    </div>
+
+                                    <h3>
+                                        Your portfolio is empty
+                                    </h3>
+
+                                    <p>
+                                        Add stocks above to start
+                                        tracking your investment.
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer>
+
+            <div class="footer-logo">
+
+                Stock<span>Vault</span>
+
+            </div>
+
+
+            <p>
+                Stock Portfolio Tracker • Academic Project
+            </p>
+
+
+            <span>
+                © 2026
+            </span>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+
+</body>
+</html>
